@@ -29,7 +29,7 @@ class AugmentorRotation(nn.Module):
         x = F.relu(self.bn5(self.conv5(x)))
         x = self.conv6(x)
         x = torch.max(x, 0, keepdim=False)[0].view(-1, 1)
-        x = x * (1/16 * torch.pi)
+        x = x * (1/32 * torch.pi)
         c, s = torch.cos(x), torch.sin(x)
         cs0 = torch.zeros_like(c)
         cs1 = torch.ones_like(c)
